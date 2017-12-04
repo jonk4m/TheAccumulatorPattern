@@ -24,9 +24,9 @@ import math
 # ----------------------------------------------------------------------
 def main():
     """ Calls the   TEST   functions in this module. """
-    #run_test_sum_more_cosines()
+    run_test_sum_more_cosines()
     run_test_count_sines_from()
-    #run_test_count_sines_vs_cosines()
+    run_test_count_sines_vs_cosines()
 
 
 def run_test_sum_more_cosines():
@@ -181,7 +181,7 @@ def count_sines_from(m, n):
 def run_test_count_sines_vs_cosines():
     """ Tests the   count_sines_vs_cosines   function. """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement this TEST function.
+    # Done: 6. Implement this TEST function.
     #   It TESTS the  count_sines_vs_cosines  function defined below.
     #   Include at least **   6   ** tests (we wrote one for you).
     #              ** Yes, 6 (six) tests. **
@@ -198,7 +198,21 @@ def run_test_count_sines_vs_cosines():
     answer = count_sines_vs_cosines(101)
     print('Test 1 expected:', expected)
     print('       actual:  ', answer)
-
+    # Test 2:
+    expected = 6
+    answer = count_sines_vs_cosines(5)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    # Test 3:
+    expected = 1
+    answer = count_sines_vs_cosines(1)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+    # Test 4:
+    expected = 0
+    answer = count_sines_vs_cosines(0)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
     # ------------------------------------------------------------------
     # TO DO: 6 (continued).
     # Below this comment, add 5 more test cases of your own choosing.
@@ -230,13 +244,19 @@ def count_sines_vs_cosines(m):
       -- Also:  count_sines_vs_cosines(101) returns 100 (trust me!)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # Done: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     # IMPORTANT: As in previous problems in this session,
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    total = 0
+    mBegin = -m
+    for k in range(m*2+1):
+        if math.sin(mBegin + k) > math.cos(mBegin + k):
+            total = total + 1
+    return total
 
 
 # ----------------------------------------------------------------------
