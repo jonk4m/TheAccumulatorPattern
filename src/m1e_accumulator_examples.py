@@ -3,7 +3,6 @@ This module demonstrates the ACCUMULATOR pattern in three classic forms:
    SUMMING:       total = total + number
    COUNTING:      count = count + 1
    IN GRAPHICS:   x = x + pixels
-
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
          Mark Hays and their colleagues.
 """
@@ -16,11 +15,8 @@ Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
 #   *** shown in this module:  SUMMING, COUNTING, and IN GRAPHICS    ***
 ########################################################################
 # ----------------------------------------------------------------------
-
 import rosegraphics as rg
 import math
-
-
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_summing_example()
@@ -213,14 +209,10 @@ def draw_row_of_circles(n, point, color, window):
     # Many students (and professionals) find this technique less
     # error-prone that using the loop variable to do all the work.
     # ------------------------------------------------------------------
-
     radius = 20
-
     x = point.x  # Initialize x and y BEFORE the loop
     y = point.y  # Choose values that make the FIRST object easy to draw
-
     for _ in range(n):  # Loop that does NOT use its index variable
-
         # --------------------------------------------------------------
         # Construct the relevant object(s),
         # based on the current x, y and other variables.
@@ -228,19 +220,14 @@ def draw_row_of_circles(n, point, color, window):
         point = rg.Point(x, y)
         circle = rg.Circle(point, radius)
         circle.fill_color = color
-
         # Attach the object(s) to the window.
         circle.attach_to(window)
-
         # --------------------------------------------------------------
         # Increment x (and in other problems, other variables)
         # for the thing(s) to draw in the NEXT iteration of the loop.
         # --------------------------------------------------------------
         x = x + (radius * 2)
-
     window.render()
-
-
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
