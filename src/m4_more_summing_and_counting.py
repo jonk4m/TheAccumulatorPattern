@@ -12,8 +12,8 @@ in its "in graphics" form:
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jonathan Kinnard.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import math
 import builtins  # Never necessary, but here for pedagogical reasons
@@ -32,9 +32,9 @@ import builtins  # Never necessary, but here for pedagogical reasons
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_sum_from()
-    run_test_factorial()
-    run_test_count_cosines_from()
-    run_test_sum_unit_fractions_from()
+    #run_test_factorial()
+    #run_test_count_cosines_from()
+    #run_test_sum_unit_fractions_from()
 
 
 # ----------------------------------------------------------------------
@@ -89,8 +89,14 @@ def run_test_sum_from():
     print('Test 4 expected (from formula):', answer_from_formula)
     print('       actual (from my code):  ', answer_from_my_code)
 
+    # Test 5:
+    answer_from_by_hand = 186
+    answer_from_my_code = sum_from(10, 21)
+    print('Test 3 expected (from by-hand):', answer_from_by_hand)
+    print('       actual (from my code):  ', answer_from_my_code)
+
 # ----------------------------------------------------------------------
-# TODO: 2.
+# Done: 2.
 #   When you have READ the above  run_test_sum_from  function,
 #   asking questions as needed, and you feel that you (mostly, at least)
 #   understand it, and you feel that you understand from the example:
@@ -114,7 +120,7 @@ def sum_from(m, n):
         sum_from(6, 9) returns 6 + 7 + 8 + 9, that is, 30.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # IMPORTANT:  Your solution MUST
@@ -124,6 +130,12 @@ def sum_from(m, n):
     #   you must NOT use the 2 or 3-parameter versions
     #   of the RANGE expression, if you happen to know them.
     # ------------------------------------------------------------------
+    total = 0
+    k = m
+    for a in range(n-m+1):
+        total = total + k
+        k = k + 1
+    return total
 
 
 def run_test_factorial():
