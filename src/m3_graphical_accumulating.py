@@ -27,8 +27,8 @@ import rosegraphics as rg
 # ----------------------------------------------------------------------
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_draw_parallel_lines()
-    #run_test_draw_lines()
+    #run_test_draw_parallel_lines()
+    run_test_draw_lines()
 
 
 def run_test_draw_parallel_lines():
@@ -47,8 +47,8 @@ def run_test_draw_parallel_lines():
     window1 = rg.RoseWindow(600, 350, title)
 
     # Test 1:
-    left_most_point = rg.Point(400, 50)
-    draw_parallel_lines(7, left_most_point, 100, window1)
+    left_most_point1 = rg.Point(400, 50)
+    draw_parallel_lines(7, left_most_point1, 100, window1)
 
     # Test 2:
     left_most_point = rg.Point(50, 200)
@@ -113,8 +113,8 @@ def draw_parallel_lines(n, point, length, window):
     x = point.x
     y = point.y
     for _ in range(n):
-        start = rg.Point(y, x + a*30)
-        ending = rg.Point(y + length, x + a*30)
+        start = rg.Point(x, y + a*30)
+        ending = rg.Point(x + length, y + a*30)
         line1 = rg.Line(start, ending)
         line1.attach_to(window)
         a = a + 1
@@ -171,7 +171,7 @@ def draw_lines(n, point, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -184,6 +184,16 @@ def draw_lines(n, point, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    a = 0
+    x = point.x
+    y = point.y
+    for _ in range(n):
+        start = rg.Point(x, y + a * 30)
+        ending = rg.Point(x + length, y + a * 30)
+        line1 = rg.Line(start, ending)
+        line1.attach_to(window)
+        a = a + 1
+    window.render()
 
 
 # ----------------------------------------------------------------------
