@@ -336,7 +336,7 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
       :type window: rg.RoseWindow
       """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # Done: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -349,7 +349,42 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+    #go ahead and graph the squares
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
 
+    #using the midpoint formula, find the point at the middle of the rectangle
+    r1left = rectangle1.get_upper_left_corner()
+    r1w = rectangle1.get_width()
+    r1h = rectangle1.get_height()
+    r1leftx = r1left.x
+    r1lefty = r1left.y
+    r1right = rectangle1.get_lower_right_corner()
+    r1rightx = r1right.x
+    r1righty = r1right.y
+    #r1mid = rg.Point((r1rightx + r1leftx)/2, (r1lefty + r1righty)/2)
+    #using the midpoint formula, find the point at the middle of the rectangle2
+    r2left = rectangle2.get_upper_left_corner()
+    r2leftx = r2left.x
+    r2lefty = r2left.y
+    r2right = rectangle2.get_lower_right_corner()
+    r2rightx = r2right.x
+    r2righty = r2right.y
+    #r2mid = rg.Point((r2rightx + r2leftx) / 2, (r2lefty + r2righty) / 2)
+
+    #find next step
+    for k in range(n):
+        r1point = rg.Point(((r1rightx + r1leftx)/2)-(k*0.5*r1w), (r1lefty + r1righty)/2+(k*0.5*r1h))
+        r2point = rg.Point(((r2rightx + r2leftx) / 2) - (k * 0.5 * r1w), (r2lefty + r2righty) / 2 + (k * 0.5 * r1h))
+        line = rg.Line(r1point, r2point)
+        line.thickness = 3
+        if (k + 1) % 2 == 0:
+            line.color = rectangle2.outline_color
+        else:
+            line.color = rectangle1.outline_color
+        line.attach_to(window)
+
+    window.render()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
