@@ -180,35 +180,7 @@ def draw_row_of_circles(n, point, color, window):
       :type color:  str
       :type window: rg.RoseWindow
     """
-    # ------------------------------------------------------------------
-    # The example below shows one way to solve problems using
-    #   HELPER variables (aka AUXILIARY variables)
-    # In this approach:
-    #  1. You determine all the variables that you need
-    #       to construct/draw whatever the problem calls for.
-    #       We call these HELPER variables.
-    #  2. You initialize them BEFORE the loop, choosing values that
-    #       make them just right for constructing and drawing the
-    #       FIRST object to be drawn, in the FIRST time through the loop.
-    #       For example,   x = point.x   in the example below.
-    #  3. You determine how many times the loop should run
-    #       (generally, however many objects you want to draw)
-    #       and write the FOR statement for the loop.
-    #       For example,    for _ in range(n):  in the example below.
-    #  4. Inside the loop you write the statements to construct and
-    #       draw the FIRST object to be drawn, using your helper
-    #       variables.  This is easy because you chose just the right
-    #       values for those helper variables for this FIRST object.
-    #  5. Test: Make sure the FIRST object appears (it will be redrawn
-    #       many times, that is OK).
-    #  6. Add code at the BOTTOM of the loop that changes the helper
-    #       variables appropriately for the NEXT time through the loop.
-    #       For example,   x = x + (radius * 2)   in the example below.
-    #  7. Test and fix as needed.
-    #
-    # Many students (and professionals) find this technique less
-    # error-prone that using the loop variable to do all the work.
-    # ------------------------------------------------------------------
+
     radius = 20
     x = point.x  # Initialize x and y BEFORE the loop
     y = point.y  # Choose values that make the FIRST object easy to draw
